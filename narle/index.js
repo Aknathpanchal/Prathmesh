@@ -15,9 +15,17 @@ app.use(cors())
 //   };
 // const server = https.createServer(options, app);
 
-app.use(cors({
-    origin: 'https://abhilash-wlc.github.io/outlook-web-addin',
-  }));
+// app.use(cors({
+//     origin: 'https://abhilash-wlc.github.io/outlook-web-addin',
+//   }));
+
+const corsOptions = {
+    origin: 'https://abhilash-wlc.github.io/outlook-web-addin', // Allow requests only from this origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow these HTTP methods
+    optionsSuccessStatus: 204, // No content response for preflight requests
+  };
+
+  app.use(cors(corsOptions));
 
 const dburl="mongodb+srv://Prathmesh11:Prathmesh11@cluster0.o4lbk.mongodb.net/test"
 
