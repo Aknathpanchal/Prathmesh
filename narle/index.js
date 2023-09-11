@@ -16,7 +16,7 @@ app.use(cors())
 // const server = https.createServer(options, app);
 
 app.use(cors({
-    origin: 'http://localhost:3001',
+    origin: 'https://abhilash-wlc.github.io/outlook-web-addin',
   }));
 
 const dburl="mongodb+srv://Prathmesh11:Prathmesh11@cluster0.o4lbk.mongodb.net/test"
@@ -32,8 +32,8 @@ mongoose.connect(dburl,connectionparams).then(()=>{
     console.log(er)
 })
 app.get("/",(req,res)=>{
-    console.log("enter home route");
-    res.end("hello world")
+    console.log("Find Prathmesh wife name?");
+    res.end("hello world ")
 })
 
 app.post("/saveinfo",async(req,res)=>{
