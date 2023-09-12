@@ -20,7 +20,7 @@ app.use(cors())
 //   }));
 
 const corsOptions = {
-    origin: 'https://abhilash-wlc.github.io', // Allow requests only from this origin
+    origin: ['https://abhilash-wlc.github.io','http://localhost:3000'], // Allow requests only from this origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow these HTTP methods
     optionsSuccessStatus: 204, // No content response for preflight requests
   };
