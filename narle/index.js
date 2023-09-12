@@ -76,7 +76,11 @@ app.post("/checkitem",async(req,res)=>{
 
     //   res.end(JSON.stringify(data))
   })
-
+app.post("/getItemById",async(req, res) => {
+const {itemId}= req.body
+const data= await demoInfoModel.find({itemId})
+res.end(JSON.stringify(data))
+})
 
 app.get("/getinfo",async(req,res)=>{
   console.log("entered");
