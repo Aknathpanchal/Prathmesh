@@ -68,7 +68,7 @@ app.put("/updateinfo",async(req,res)=>{
 app.post("/checkitem",async(req,res)=>{
     const {itemId}=req.body
     console.log("name", itemId)
-    if(req.body){
+    if(itemId){
         console.log("namerttt", itemId)
         const data= await demoInfoModel.find({itemId})
         if(data){
