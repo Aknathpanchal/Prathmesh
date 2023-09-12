@@ -58,7 +58,7 @@ app.post("/createinfo",async(req,res)=>{
 app.put("/updateinfo",async(req,res)=>{
     const {itemId,newStatus}=req.body
     console.log("name,age,body", itemId)
-    demoInfoModel.updateOne({ itemId: itemId },{ $set: { status: newStatus } })
+   await demoInfoModel.updateOne({ itemId: itemId },{ $set: { status: newStatus } })
    
     // await data.save()
     res.end("Update Success")
