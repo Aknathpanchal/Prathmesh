@@ -65,7 +65,7 @@ app.put("/updateinfo",async(req,res)=>{
 })
 
 
-app.get("/checkitem",async(req,res)=>{
+app.post("/checkitem",async(req,res)=>{
     const {itemId}=req.body
       const data= await demoInfoModel.find({itemId})
       if(data){
@@ -73,8 +73,8 @@ app.get("/checkitem",async(req,res)=>{
     }else{
             res.end(JSON.stringify({isExists: false}))
         }
-  
-      res.end(JSON.stringify(data))
+
+    //   res.end(JSON.stringify(data))
   })
 
 
