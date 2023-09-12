@@ -67,15 +67,19 @@ app.put("/updateinfo",async(req,res)=>{
 
 app.post("/checkitem",async(req,res)=>{
     const {itemId}=req.body
-      const data= await demoInfoModel.find({itemId})
-      if(data){
-        res.end(JSON.stringify({isExists: true}))
+    if(req.body){
+        const data= await demoInfoModel.find({itemId})
+        if(data){
+          res.end(JSON.stringify({isExists: true}))
+      }else{
+              res.end(JSON.stringify({isExists: false}))
+          }
     }else{
-            res.end(JSON.stringify({isExists: false}))
-        }
-
-    //   res.end(JSON.stringify(data))
+        res.end(JSON.stringify({isExists: false}))
+    }
   })
+
+  
 app.post("/getItemById",async(req, res) => {
 const {itemId}= req.body
 const data= await demoInfoModel.find({itemId})
