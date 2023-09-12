@@ -44,18 +44,39 @@ app.get("/",(req,res)=>{
     res.end("hello world ")
 })
 
-app.post("/saveinfo",async(req,res)=>{
-    const {name,age,address}=req.body
-    console.log("name,age,body",name,age,address)
+app.post("/createinfo",async(req,res)=>{
+    const {company, form, status, itemId}=req.body
+    console.log("name,age,body",company, form, status, itemId)
     const data=new demoInfoModel({
-        name,
-        age,
-        address
+        company, form, status, itemId
     })
    
     await data.save()
     res.end("success")
 })
+
+app.put("/updateinfo",async(req,res)=>{
+    const {itemId,newStatus}=req.body
+    console.log("name,age,body", itemId)
+    demoInfoModel.updateOne({ itemId: itemId },{ $set: { status: newStatus } })
+   
+    // await data.save()
+    res.end("Update Success")
+})
+
+
+app.get("/checkitem",async(req,res)=>{
+    const {itemId}=req.body
+      const data= await demoInfoModel.find({itemId})
+      if(data){
+        res.end(JSON.stringify({isExists: true}))
+    }else{
+            res.end(JSON.stringify({isExists: false}))
+        }
+  
+      res.end(JSON.stringify(data))
+  })
+
 
 app.get("/getinfo",async(req,res)=>{
   console.log("entered");
@@ -63,9 +84,13 @@ app.get("/getinfo",async(req,res)=>{
 
     res.end(JSON.stringify(data))
 })
+
+
 app.listen(8080,()=>{
     console.log("server started on 808");
 })
+
+
 
 
 

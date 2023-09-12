@@ -1,8 +1,9 @@
 const mongoose=require("mongoose")
 const demoInfoSchema=new mongoose.Schema({
-  name:String,
-  age:Number,
-  address:String
+  company:String,
+  form:String,
+  status:String,
+  itemId:String,
 })
 
 const demoInfoModel=mongoose.model("demoInfo",demoInfoSchema)
