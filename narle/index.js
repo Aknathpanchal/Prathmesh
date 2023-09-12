@@ -65,23 +65,41 @@ app.put("/updateinfo",async(req,res)=>{
 })
 
 
-app.post("/checkitem",async(req,res)=>{
-    const {itemId}=req.body
-    console.log("name", itemId)
+// app.post("/checkitem",async(req,res)=>{
+//     const {itemId}=req.body
+//     console.log("name", itemId)
+//     if(itemId){
+//         console.log("namerttt", itemId)
+//         const data= await demoInfoModel.find({itemId})
+//         if(data){
+//             console.log("namerrrrrrr", itemId)
+//           res.end(JSON.stringify({isExists: true}))
+//       }else{
+//         console.log("nam555555", itemId)
+//               res.end(JSON.stringify({isExists: false}))
+//           }
+//     }else{
+//         console.log("nam8888e", itemId)
+//         res.end(JSON.stringify({isExists: false}))
+//     }
+//   })
+
+
+  app.post("/checkitem",async(req,res)=>{
+    const {itemId} = req.body
     if(itemId){
-        console.log("namerttt", itemId)
         const data= await demoInfoModel.find({itemId})
         if(data){
-            console.log("namerrrrrrr", itemId)
-          res.end(JSON.stringify({isExists: true}))
-      }else{
-        console.log("nam555555", itemId)
-              res.end(JSON.stringify({isExists: false}))
-          }
-    }else{
-        console.log("nam8888e", itemId)
+            res.end(JSON.stringify({isExists: true}))
+        }
+        else{
+            res.end(JSON.stringify({isExists: false}))
+        }
+    }
+    else{
         res.end(JSON.stringify({isExists: false}))
     }
+    
   })
 
   
